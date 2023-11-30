@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>Fire - Board games</title>
+    <meta name="description" content="Explore a diverse collection of board games at our online store. Find exciting and engaging games for all ages. Enjoy hours of fun with family and friends. Shop now for the best board game experience!">
+
+    {% block head %}
+    {% endblock head %}
+
+</head>
+<body>
+    <div id="container">
+        <header>
+            <div id='top_nav_bar'>
+                <div id="logo">
+                    <h1>Fire - Board Games</h1>
+                </div>
+
+                <div id="search_bar">
+                    <span>a</span>
+                </div>
+
+                <div id="top_nav_bar_menu">
+                    <div id="login">
+                        <span>Login</span>
+                    </div>
+                    <div id="cart">
+                        <span>Cart</span>
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+                <nav>
+                    <ul class="menu">
+                        <li><a href ="#">Card games</a></li>
+                        <li><a href ="#">Battle games</a></li>
+                        <li><a href ="#">Board games</a></li>
+                        <li><a href ="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <nav>
+                <div id="bottom_nav_bar">
+
+                </div>
+            </nav>
+        </header>
+
+        {% block content %}
+        {% endblock content %}
+    </div>
+</body>
+</html>
