@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from PIL import Image
+
 
 # Create your models here.
 
@@ -10,6 +12,16 @@ class Game(models.Model):
     stock = models.PositiveIntegerField()
     image = models.ImageField(upload_to='game_images/')
     published_date = models.DateField(null=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+        img = Image.open(self.image.path)
+        max_size = (300, 300)
+
+        if img.width > max_size[0] or img.height > max_size[1]:
+            img.thumbnail(max_size)
+            img.save(self.image.path)
 
     def __str__(self):
         return self.title
