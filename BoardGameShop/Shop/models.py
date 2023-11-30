@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from PIL import Image
+from PIL import Image, ImageOps
 
 
 # Create your models here.
@@ -17,10 +17,11 @@ class Game(models.Model):
         super().save(*args, **kwargs)
 
         img = Image.open(self.image.path)
-        max_size = (300, 300)
+        target_size = (300, 300)
 
-        if img.width > max_size[0] or img.height > max_size[1]:
-            img.thumbnail(max_size)
+        # Prosty warunek sprawdzający, czy obraz ma inny rozmiar niż docelowy
+        if img.size != target_size:
+            img = img.resize(target_size)
             img.save(self.image.path)
 
     def __str__(self):

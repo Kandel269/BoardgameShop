@@ -83,7 +83,6 @@ nav
     color: #0a2b42;
 }
 
-
 .game-container {
     text-align: center;
     margin: 0px 12.5px 20px 12.5px;
@@ -103,4 +102,52 @@ nav
 }
 .game-container span {
     margin: 0px;
+}
+
+#footer_container_main {
+    text-align: center;
+    background-color: black;
+}
+#list_account {
+    text-align: left;
+    float: left;
+    width: 200px;
+    margin-top: 2px;
+}
+#list_informations {
+    text-align: left;
+    float: left;
+    width: 200px;
+    margin-top: 2px;
+}
+#list_products {
+    text-align: left;
+    float: left;
+    width: 200px;
+    margin-top: 2px;
+}
+
+#footer_links ul {
+    list-style: none;
+    padding: 4px;
+    margin: 0px 0px 0px 30px;
+}
+#footer_links li {
+    margin: 0px 0px 10px 5px;
+    font-size: 15px;
+}
+
+#footer_links h2 {
+    margin-bottom: 15px;
+    font-size: 25px;
+}
+
+#footer_links li:hover {
+    color: #0a2b42;
+    cursor: pointer;
+}
+
+#footer_links h2:hover {
+    color: #efefef;
+    cursor: default;
 }
