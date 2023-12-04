@@ -22,6 +22,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'Shop',
+    'fontawesomefree',
 
     'django.contrib.admin',
     'django.contrib.auth',
