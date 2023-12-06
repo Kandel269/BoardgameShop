@@ -1,6 +1,6 @@
 body {
     background-color: #2F3336;
-    margin: 0;
+    margin: 0px;
     color: #efefef;
 }
 #container {
@@ -25,6 +25,10 @@ body {
     font-size: 40px;
     letter-spacing: 5px;
 }
+#logo h1:hover{
+    color: #ff0000;
+}
+
 #search_bar{
     float: left;
     width: 510px;
@@ -45,14 +49,8 @@ body {
     height: 100px;
     padding-top: 13.6px;
 }
-.login-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.login-container i {
-    margin-bottom: 0px; /* Dowolny margines między ikoną a tekstem */
+#login_no_auth {
+    font-size: 28px;
 }
 #cart {
     float: left;

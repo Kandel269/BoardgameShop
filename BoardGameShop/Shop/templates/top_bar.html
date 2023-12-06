@@ -20,7 +20,7 @@
         <header>
             <div id='top_nav_bar'>
                 <div id="logo">
-                    <h1><i class="fa-solid fa-fire fa-xl"></i> Fire - Board Games </h1>
+                    <a href="{% url 'home' %}" style="text-decoration: none; color: #efefef;"><h1><i class="fa-solid fa-fire fa-xl"></i> Fire - Board Games </h1></a>
                 </div>
 
                 <div id="search_bar">
@@ -30,11 +30,10 @@
                 <div id="top_nav_bar_menu">
                     <div id="login">
                         {% if request.user.is_authenticated %}
-
+                            <i class="fa-regular fa-user fa-2xl"></i>
                         {% else %}
-                        <div class="login-container">
-                            <i class="fa-regular fa-user fa-xl"></i>
-                            <span style="margin-top: 0px">Login in</span>
+                        <div id="login_no_auth">
+                            Login in
                         </div>
                         {% endif %}
                     </div>
