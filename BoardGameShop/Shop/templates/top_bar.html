@@ -20,7 +20,7 @@
         <header>
             <div id='top_nav_bar'>
                 <div id="logo">
-                    <h1>Fire - Board Games</h1>
+                    <h1><i class="fa-solid fa-fire fa-xl"></i> Fire - Board Games </h1>
                 </div>
 
                 <div id="search_bar">
@@ -29,10 +29,17 @@
 
                 <div id="top_nav_bar_menu">
                     <div id="login">
-                        <span>Login</span>
+                        {% if request.user.is_authenticated %}
+
+                        {% else %}
+                        <div class="login-container">
+                            <i class="fa-regular fa-user fa-xl"></i>
+                            <span style="margin-top: 0px">Login in</span>
+                        </div>
+                        {% endif %}
                     </div>
                     <div id="cart">
-                        <span>Cart</span>
+                        <i class="fa-solid fa-cart-shopping fa-2xl"></i>
                     </div>
                 </div>
                 <div style="clear:both"></div>
@@ -61,22 +68,22 @@
                 <div id="footer_links">
                     <ul id="list_account">
                         <li><h2>Account</h2></li>
-                        <li><i class="fa-solid fa-user"></i> My_account</li>
-                        <li><i class="fa-solid fa-cart-shopping"></i> Cart</li>
-                        <li><i class="fa-solid fa-book"></i> History of transaction</li>
+                        <li><i class="fa-solid fa-arrow-right"></i> My_account</li>
+                        <li><i class="fa-solid fa-arrow-right"></i> Cart</li>
+                        <li><i class="fa-solid fa-arrow-right"></i> History of transaction</li>
                     </ul>
                     <ul id="list_informations">
                         <li><h2>Informations</h2></li>
-                        <li><i class="fa-solid fa-shop"></i> About our shop</li>
-                        <li><i class="fa-solid fa-info"></i> Privacy</li>
-                        <li><i class="fa-solid fa-phone"></i> Contact us</li>
-                        <li><i class="fa-solid fa-circle-info"></i> Terms and Condition</li>
+                        <li><i class="fa-solid fa-arrow-right"></i> About our shop</li>
+                        <li><i class="fa-solid fa-arrow-right"></i> Privacy</li>
+                        <li><i class="fa-solid fa-arrow-right"></i> Contact us</li>
+                        <li><i class="fa-solid fa-arrow-right"></i> Terms and Condition</li>
                     </ul>
                     <ul id="list_products">
                         <li><h2>Products</h2></li>
-                        <li><i class="fa-solid fa-sack-dollar"></i> Prices drop</li>
-                        <li><i class="fa-solid fa-plus"></i> New products</li>
-                        <li><i class="fa-solid fa-heart"></i> Best sales</li>
+                        <li><i class="fa-solid fa-arrow-right"></i> Prices drop</li>
+                        <li><i class="fa-solid fa-arrow-right"></i> New products</li>
+                        <li><i class="fa-solid fa-arrow-right"></i> Best sales</li>
                     </ul>
                 </div>
                 <div style="clear:both"></div>

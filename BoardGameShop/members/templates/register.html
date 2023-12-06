@@ -1,0 +1,55 @@
+{% extends 'top_bar.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        <div id="register_page">
+            <div id="register_page_title">
+                Register your account
+            </div>
+            <form method="POST" action="">
+                {% csrf_token %}
+                <div class="register_field">
+                    <div class='register_form_label'>{{form.username.label}}</div>
+                    <div class='register_form'>{{form.username}}</div>
+                </div>
+
+                <div class="register_field">
+                    <div class='register_form_label'>{{form.email.label}}</div>
+                    <div class='register_form'>{{form.email}}</div>
+                </div>
+
+                <div class="register_field">
+                    <div class='register_form_label'>{{form.first_name.label}}</div>
+                    <div class='register_form'>{{form.first_name}}</div>
+                </div>
+
+                <div class="register_field">
+                    <div class='register_form_label'>{{form.last_name.label}}</div>
+                    <div class='register_form'>{{form.last_name}}</div>
+                </div>
+
+                <div class="register_field">
+                    <div class='register_form_label'>{{form.password1.label}}</div>
+                    <div class='register_form'>{{form.password1}}</div>
+                </div>
+
+                <div class="register_field">
+                    <div class='register_form_label'>{{form.password2.label}}</div>
+                    <div class='register_form'>{{form.password2}}</div>
+                </div>
+
+                <div style="clear:both"></div>
+                <div id="register_button_submit">
+                    <input type="submit" name="Create_user" value="Register account">
+                </div>
+                <div id="register_lgo_in">
+                    Already have an account? <a href="{% url 'login' %}" style="text-decoration: none;"><span style="color:#1f81c7">Log in.</span></a>
+                </div>
+            </form>
+
+        </div>
+        {{form.errors}}
+
+    </main>
+{% endblock content %}

@@ -16,13 +16,14 @@ body {
 
 #logo {
     float: left;
+    padding-right: 20px;
+    width: 530px;
+    height: 113.6px;
 }
 
 #logo h1{
     font-size: 40px;
     letter-spacing: 5px;
-    padding-right: 20px;
-    width: 430px;
 }
 #search_bar{
     float: left;
@@ -30,6 +31,7 @@ body {
     text-align: center;
     line-height: 100px;
     padding-right: 40px;
+    height: 113.6px;
 }
 #top_nav_bar_menu {
     float: left;
@@ -39,12 +41,25 @@ body {
 }
 #login {
     float: left;
-    width: 130px;
-    padding-right: 20px;
+    width: 150px;
+    height: 100px;
+    padding-top: 13.6px;
+}
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-container i {
+    margin-bottom: 0px; /* Dowolny margines między ikoną a tekstem */
 }
 #cart {
     float: left;
-    width: 150px;
+    width: 130px;
+    padding-right: 20px;
+    height: 100px;
+    padding-top: 13.6px;
 }
 
 
@@ -150,4 +165,51 @@ nav
 #footer_links h2:hover {
     color: #efefef;
     cursor: default;
+}
+
+
+
+#register_page {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+#register_page_title {
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+.register_field {
+    margin-bottom: 10px;
+    width: 100%;
+}
+.register_form_label {
+    display: inline-block;
+    margin-right: 10px;
+    width: 250px;
+    font-size: 20px;
+    text-align: left;
+}
+.register_form {
+    display: inline-block;
+}
+#register_button_submit {
+   margin-top: 25px;
+   margin-bottom: 25px;
+}
+#register_lgo_in {
+    font-size: 20px;
+}
+
+#login_page {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+.login_form {
+    margin-bottom: 10px;
+}
+#login_page_title {
+    font-size: 30px;
+    margin-bottom: 25px;
 }

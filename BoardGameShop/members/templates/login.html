@@ -1,0 +1,28 @@
+{% extends 'top_bar.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        <div id="login_page">
+            <form method="POST" action="">
+                {% csrf_token %}
+                <div id="login_page_title">
+                    Login
+                </div>
+                <div class="login_form">
+                    <input type="text" name="username" placeholder="Username"/>
+                </div>
+                <div class="login_form">
+                    <input type="password" name="password" placeholder="Password">
+                </div>
+                <div id="register_button_submit">
+                    <input type="submit" name="login_user" value="Login in">
+                </div>
+            </form>
+            {% for message in messages %}
+                <p id="messages">{{message}}</p>
+            {% endfor %}
+
+        </div>
+    </main>
+{% endblock content %}
