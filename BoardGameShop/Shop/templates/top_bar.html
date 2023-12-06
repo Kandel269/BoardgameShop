@@ -31,17 +31,19 @@
                 <div id="top_nav_bar_menu">
                     <div id="login">
                         {% if request.user.is_authenticated %}
-                            <a class="no_change" href="{% url 'account' %}">
+                            <a class="no_change3" href="{% url 'account' %}">
                                 <i class="fa-regular fa-user fa-2xl"></i>
                             </a>
                         {% else %}
                         <div id="login_no_auth">
-                            <a class='no_change' href="{% url 'login' %}">Login in</a>
+                            <a class='no_change3' href="{% url 'login' %}">Login in</a>
                         </div>
                         {% endif %}
                     </div>
                     <div id="cart">
-                        <i class="fa-solid fa-cart-shopping fa-2xl"></i>
+                        <a class="no_change3" href="#">
+                            <i class="fa-solid fa-cart-shopping fa-2xl"></i>
+                        </a>
                     </div>
                 </div>
                 <div style="clear:both"></div>

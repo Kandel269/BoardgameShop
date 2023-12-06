@@ -49,6 +49,7 @@ body {
     height: 100px;
     padding-top: 13.6px;
 }
+
 #login_no_auth {
     font-size: 28px;
 }
@@ -165,5 +166,14 @@ nav
     cursor: default;
 }
 
-
-
+.no_change {
+    text-decoration: none;
+    color: #efefef;
+}
+.no_change3 {
+    text-decoration: none;
+    color: #efefef;
+}
+.no_change3:hover {
+    color: #379ae1;
+}
