@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8"/>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/members_style.css' %}">
     <title>Fire - Board games</title>
     <meta name="description" content="Explore a diverse collection of board games at our online store. Find exciting and engaging games for all ages. Enjoy hours of fun with family and friends. Shop now for the best board game experience!">
 
@@ -20,7 +21,7 @@
         <header>
             <div id='top_nav_bar'>
                 <div id="logo">
-                    <a href="{% url 'home' %}" style="text-decoration: none; color: #efefef;"><h1><i class="fa-solid fa-fire fa-xl"></i> Fire - Board Games </h1></a>
+                    <a class='no_change' href="{% url 'home' %}"><h1><i class="fa-solid fa-fire fa-xl"></i> Fire - Board Games </h1></a>
                 </div>
 
                 <div id="search_bar">
@@ -30,10 +31,12 @@
                 <div id="top_nav_bar_menu">
                     <div id="login">
                         {% if request.user.is_authenticated %}
-                            <i class="fa-regular fa-user fa-2xl"></i>
+                            <a class="no_change" href="{% url 'account' %}">
+                                <i class="fa-regular fa-user fa-2xl"></i>
+                            </a>
                         {% else %}
                         <div id="login_no_auth">
-                            Login in
+                            <a class='no_change' href="{% url 'login' %}">Login in</a>
                         </div>
                         {% endif %}
                     </div>

@@ -1,0 +1,90 @@
+#register_page {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+#register_page_title {
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+.register_field {
+    margin-bottom: 10px;
+    width: 100%;
+}
+.register_form_label {
+    display: inline-block;
+    margin-right: 10px;
+    width: 250px;
+    font-size: 20px;
+    text-align: left;
+}
+.register_form {
+    display: inline-block;
+}
+#register_button_submit {
+   margin-top: 25px;
+   margin-bottom: 25px;
+}
+#register_lgo_in {
+    font-size: 20px;
+}
+
+#login_page {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+.login_form {
+    margin-bottom: 10px;
+}
+#login_page_title {
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+
+
+#account_container {
+    text-align: center;
+    margin-bottom: 30px;
+}
+#account_title {
+    padding-top: 5px;
+    padding-bottom: 20px;
+}
+#account_content_container {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.account_content {
+    float: left;
+    width: 600px;
+    margin-bottom: 30px;
+}
+.account_content_title {
+    width: 600px;
+    padding-bottom: 10px;
+    font-size: 30px;
+    text-align: left;
+    padding-left: 70px;
+}
+.account_content_image {
+    float: left;
+    width: 50px;
+    padding-right: 20px;
+}
+.account_content_text {
+    float: left;
+    max-width: 400px;
+    text-align: justify;
+}
+
+
+
+
+.no_change {
+    text-decoration: none;
+    color: #efefef;
+}

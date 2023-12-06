@@ -1,0 +1,60 @@
+{% extends 'top_bar.html' %}
+{% load static %}
+
+{% block content %}
+    <div id="account_container">
+        <div id="account_title">
+            <h1>Welcome {{ request.user.first_name }} {{ request.user.last_name }}</h1>
+        </div>
+        <main>
+            <div id = "account_content_container">
+                <div class="account_content">
+                    <div class="account_content_title">
+                        Personal Data
+                    </div>
+                    <div class="account_content_image">
+                        <i class="fa-solid fa-user fa-2xl"></i>
+                    </div>
+                    <div class="account_content_text">
+                        In this place, you can check or change your personal data, add new delivery addresses that you can use when placing an order.
+                    </div>
+                </div>
+                <div class="account_content">
+                    <div class="account_content_title">
+                        History of transaction
+                    </div>
+                    <div class="account_content_image">
+                        <i class="fa-solid fa-bars fa-2xl"></i>
+                    </div>
+                    <div class="account_content_text">
+                        Section where you can track the progress of current order fulfillments in real time.
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+                <div class="account_content">
+                    <div class="account_content_title">
+                        Reclamation
+                    </div>
+                    <div class="account_content_image">
+                        <i class="fa-solid fa-rotate-left fa-2xl"></i>
+                    </div>
+                    <div class="account_content_text">
+                        This section allows you to file a complaint about products in our store. If you have already filed a complaint, you will find its details here, along with information about its processing status.
+                    </div>
+                </div>
+                <div class="account_content">
+                    <div class="account_content_title">
+                        Discounts
+                    </div>
+                    <div class="account_content_image">
+                        <i class="fa-solid fa-percent fa-2xl"></i>
+                    </div>
+                    <div class="account_content_text">
+                        Check if you have any valid loyalty cards and find out what you can do to obtain them. Also, see which product groups you can get discounts on and the discount amounts.
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+        </main>
+    </div>
+{% endblock content %}
