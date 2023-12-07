@@ -72,8 +72,8 @@ nav
     list-style-type: none;
     padding: 5px;
     font-size: 24px;
-    min-height: 40px;
     margin-top: 0px;
+    height: 45px;
 }
 
 .menu > li {
@@ -176,4 +176,30 @@ nav
 }
 .no_change3:hover {
     color: #379ae1;
+}
+
+ul > li > ol {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    height: 40px;
+    display: none;
+}
+ul > li > ol > li {
+    background-color: black;
+    position: relative;
+    z-index: 100;
+    border-top: 1px solid white;
+}
+
+ul > li > ol > li:hover {
+    background-color: blue;
+}
+
+ul > li > ol > li:hover > a {
+    color: green;
+}
+
+ul > li:hover > ol {
+    display: block;
 }
