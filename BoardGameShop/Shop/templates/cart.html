@@ -1,0 +1,26 @@
+{% extends 'top_bar.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="cart">
+        <h1 style="font-size: 30px;">Cart for {{ request.user.username }}</h1>
+
+        {% if request.user.is_authenticated %}
+            {% if request.user.cart.games.all %}
+                <ul>
+                    {% for game in request.user.cart.games.all %}
+                        <li>{{ game.title }} - {{ game.price }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <img src="/media/website_images/cart_image.jpg" alt="Opis obrazu">
+                <p style="font-size: 25px; margin-bottom: 5px;">Your cart is empty.</p>
+                <p style="font-size: 17px; margin-top: 0; margin-bottom: 30px;">Add products to it to start placing an order.</p>
+                <a class ="button_start_shopping" href ="{% url 'home' %}">Start shopping</a>
+            {% endif %}
+        {% else %}
+            <p>Please log in to view your cart.</p>
+        {% endif %}
+    </div>
+{% endblock content %}

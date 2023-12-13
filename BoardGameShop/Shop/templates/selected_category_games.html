@@ -1,0 +1,25 @@
+{% extends 'top_bar.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        {% for game in games %}
+        <figure class="game-container">
+            <img src="{{ game.image.url }}" alt="{{ game.title }}">
+            <figcaption>
+                <h2>{{ game.title }}</h2>
+                <span>Price: {{ game.price }}$</span>
+            </figcaption>
+        </figure>
+
+        {% empty %}
+            <p>no available games</p>
+
+        {% endfor %}
+        <div style="clear:both"></div>
+
+
+    </main>
+
+
+{% endblock content %}
