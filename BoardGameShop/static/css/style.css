@@ -150,18 +150,10 @@ ul > li > ol {
     display: none;
 }
 ul > li > ol > li {
-    background-color: black;
+    background-color: #1f81c7;
     position: relative;
     z-index: 100;
-    border-top: 1px solid white;
-}
-
-ul > li > ol > li:hover {
-    background-color: blue;
-}
-
-ul > li > ol > li:hover > a {
-    color: green;
+    border-top: 1px solid #0a2b42;
 }
 
 ul > li:hover > ol {
@@ -198,3 +190,10 @@ ul > li:hover > ol {
 .top_bar_menu > li:first-child {
     border-left: 1px solid #0a2b42;
 }
+.top_bar_menu a:hover {
+    color: #0a2b42;
+    background-color: #1f81c7;
+}
+
+
+
