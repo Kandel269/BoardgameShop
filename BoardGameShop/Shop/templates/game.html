@@ -26,8 +26,13 @@
                 </div>
                 <div class="game-info-right">
                     <div class="game-info-right-top">
-                        <i class="fa-solid fa-truck fa-2xl"></i>
-                        <span style="padding-left: 3px;"> Delivery within 7 days. Shipping 24/7.</span>
+                        {% if game.stock != 0 %}
+                            <span class="game-stock"> {{ game.stock }} copies in stock</span>
+                            <i class="fa-solid fa-truck fa-2xl"></i>
+                            <span style="padding-left: 3px;"> Delivery within 7 days. Shipping 24/7.</span>
+                        {% else %}
+                            <span class="game-out-of-stock">Out of stock</span>
+                        {% endif %}
                     </div>
                     <div class="game-info-right-bottom">
                         aaa
@@ -37,5 +42,8 @@
             </div>
         </div>
         <div style="clear:both"></div>
+        <div class="game-describe">
+            {{ game.description|linebreaks }}
+        </div>
     </main>
 {% endblock content %}
