@@ -1,0 +1,41 @@
+{% extends 'top_bar.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        <div class="game_content">
+            <figure class="game-side-img">
+                <img src="{{ game.image.url }}" alt="{{ game.title }}">
+            </figure>
+            <div class="game-info">
+                <div class="game-title">
+                    {{ game.title }}
+                </div>
+                <div class="game-short-describe">
+                    Short desrcibe Short desrcibe Short desrcibe Short desrcibe Short desrcibe Short desrcibe Short desrcibe Short desrcibe Short desrcibe Short desrcibe Short desrcibe Short desrcibe.
+                </div>
+
+                <div class="game-info-left">
+                    <div class="game-info-left-top">
+                        <h1>{{ game.price }}$</h1><h2> per item</h2>
+                    </div>
+                    <div style="clear:both"></div>
+                    <div class="game-info-left-bottom">
+                        <h3>afdsghfd</h3>
+                    </div>
+                </div>
+                <div class="game-info-right">
+                    <div class="game-info-right-top">
+                        <i class="fa-solid fa-truck fa-2xl"></i>
+                        <span style="padding-left: 3px;"> Delivery within 7 days. Shipping 24/7.</span>
+                    </div>
+                    <div class="game-info-right-bottom">
+                        aaa
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div style="clear:both"></div>
+    </main>
+{% endblock content %}

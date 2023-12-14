@@ -24,3 +24,12 @@ class CartView(View):
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
+
+class GameView(View):
+    template_name = 'game.html'
+
+    def get(self, request, *args, **kwargs):
+        game_id = kwargs.get('game_id')
+        game = get_object_or_404(Game, id=game_id)
+        context = {'game':game}
+        return render(request, self.template_name, context)
