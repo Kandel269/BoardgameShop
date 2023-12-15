@@ -25,7 +25,11 @@
                 </div>
 
                 <div id="search_bar">
-                    <span>a</span>
+                    <form action="{% url 'search_game' %}" method="post">
+                        {% csrf_token %}
+                        <input type="text" name="find_game" placeholder="Search game">
+                        <button type="submit">Search</button>
+                    </form>
                 </div>
 
                 <div id="top_nav_bar_menu">

@@ -1,0 +1,32 @@
+{% extends 'top_bar.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+        {% for game in games %}
+        <figure class="game-container">
+            <a href="{% url 'game'  game_id=game.id %}">
+                <img src="{{ game.image.url }}" alt="{{ game.title }}">
+            </a>
+            <figcaption>
+                <a href="{% url 'game'  game_id=game.id %}" class="no_change">
+                    <h2>{{ game.title }}</h2>
+                </a>
+                <span>Price: {{ game.price }}$</span>
+            </figcaption>
+        </figure>
+
+        {% empty %}
+            <div class="not-found">
+                <h1>Product not found.</h1>
+                <h2>Search results for the keyword: {{find_game}}</h2>
+                <h2>No products found containing the searched phrase.</h2>
+            </div>
+        {% endfor %}
+        <div style="clear:both"></div>
+
+
+    </main>
+
+
+{% endblock content %}

@@ -283,3 +283,19 @@ ul > li:hover > ol {
     font-size: 18px;
     margin-right: 5px;
 }
+
+.not-found {
+    text-align: center;
+    padding-bottom: 35px;
+    margin-top: 0px;
+}
+.not-found h1 {
+    font-size: 35px;
+    margin-bottom: 5px;
+    padding-bottom: 10px;
+}
+.not-found h2 {
+    font-size: 22px;
+    padding-bottom: 5px;
+    margin: 0px;
+}

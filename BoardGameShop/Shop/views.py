@@ -33,3 +33,12 @@ class GameView(View):
         game = get_object_or_404(Game, id=game_id)
         context = {'game':game}
         return render(request, self.template_name, context)
+
+class SearchGameView(View):
+    template_name = 'search_game.html'
+
+    def post(self, request, *args, **kwargs):
+        find_game = request.POST.get('find_game')
+        games = Game.objects.filter(title__icontains=find_game)
+        context = {'games': games, 'find_game':find_game}
+        return render(request, self.template_name, context)
