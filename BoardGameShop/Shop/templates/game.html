@@ -21,7 +21,11 @@
                     </div>
                     <div style="clear:both"></div>
                     <div class="game-info-left-bottom">
-                        <h3>afdsghfd</h3>
+                        {% if game.stock != 0 %}
+                            <span class="add-to-cart">Add to cart</span>
+                        {% else %}
+                            <span class="add-to-cart">Notify me when available</span>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="game-info-right">
