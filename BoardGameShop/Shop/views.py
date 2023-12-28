@@ -34,6 +34,13 @@ class GameView(View):
         context = {'game':game}
         return render(request, self.template_name, context)
 
+    def post(self, request, *args, **kwargs):
+        game_id = request.POST.get('game_id')
+        user = request.user
+        game = get_object_or_404(Game, id=game_id)
+        context = {'game': game}
+        return render(request, self.template_name,context)
+
 class SearchGameView(View):
     template_name = 'search_game.html'
 

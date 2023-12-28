@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 
 from . import forms
+from Shop.models import Cart
 
 
 class LoginPage(View):
@@ -35,9 +36,10 @@ class RegisterPage(View):
     def post(self, request, *args, **kwargs):
         form = forms.CreateUserForm(request.POST)
         if form.is_valid():
-            form.save()
-            user = form.cleaned_data.get('username')
-            messages.success(request, 'Account was created for' + user)
+            user = form.save()
+            messages.success(request, 'Account was created for' + user.username)
+            cart = Cart(user=user)
+            cart.save()
             return redirect('login')
         else:
             context = {'form': form}
