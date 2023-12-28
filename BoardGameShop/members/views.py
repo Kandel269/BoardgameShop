@@ -45,10 +45,11 @@ class RegisterPage(View):
 
 class LogoutUser(View):
     def get(self, request):
-        logout(request,)
+        logout(request)
         return redirect('home')
 
 class AccountPage(View):
     template_name = 'account.html'
     def get(self, request):
         return render(request,'account.html')
+
