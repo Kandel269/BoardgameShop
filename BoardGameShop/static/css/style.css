@@ -332,3 +332,31 @@ ul > li:hover > ol {
     margin: 0px;
 }
 
+#cart-overlay {
+    position: relative;
+    width: 130px;
+    height: 100px;
+}
+
+#cart-overlay #cart-circle {
+    position: absolute;
+    display: block;
+    background-color: #3498db;
+    color: #fff;
+    right: 20px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+#cart-circle-text {
+    position: absolute;
+    top: -35px;
+    right: 10px;
+    font-size: 20px;
+    color: red;
+    margin: 0;
+
+}
+
+

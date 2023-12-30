@@ -1,4 +1,4 @@
-from Shop.models import CartItem, Cart
+from Shop.models import CartItem, Cart # noqa
 from django.shortcuts import get_object_or_404
 
 def is_game_in_cart(cart, game):
@@ -14,3 +14,4 @@ def get_cart(request):
     user = request.user
     cart = get_object_or_404(Cart, user__id=user.id)
     return cart
+

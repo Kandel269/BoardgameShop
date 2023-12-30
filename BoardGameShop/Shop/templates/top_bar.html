@@ -45,9 +45,16 @@
                         {% endif %}
                     </div>
                     <div id="cart">
-                        <a class="no_change3" href="{% url 'cart' %}">
-                            <i class="fa-solid fa-cart-shopping fa-2xl"></i>
-                        </a>
+                        <div id="cart-overlay">
+                            <a class="no_change3" href="{% url 'cart' %}">
+                                <i class="fa-solid fa-cart-shopping fa-2xl"></i>
+                            </a>
+                            {% if cart_item_count %}
+                                <a href="#" id="cart-circle">
+                                    <span id="cart-circle-text">{{cart_item_count}}</span>
+                                </a>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
                 <div style="clear:both"></div>
