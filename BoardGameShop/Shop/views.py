@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import View
 from .models import *
+from .functions import *
 
 class HomeView(View):
     def get(self, request):
@@ -38,6 +39,11 @@ class GameView(View):
         game_id = request.POST.get('game_id')
         user = request.user
         game = get_object_or_404(Game, id=game_id)
+        cart = get_object_or_404(Cart, user__id=user.id)
+        if is_game_in_cart(cart, game):
+            add_quantity(cart, game)
+        else:
+            cart.games.add(game)
         context = {'game': game}
         return render(request, self.template_name,context)
 
