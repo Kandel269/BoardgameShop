@@ -22,13 +22,19 @@
                     <div style="clear:both"></div>
                     <div class="game-info-left-bottom">
                         {% if game.stock != 0 %}
-                        <form method="post" action="">
-                            {% csrf_token %}
-                            <input type="hidden" name="game_id" value="{{ game.id }}">
-                            <button type="submit" class="add-to-cart">Add to Cart</button>
-                        </form>
-
-<!--                            <span class="add-to-cart">Add to cart</span>-->
+                            {% if in_cart %}
+                                <form method="post" action="">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="game_id" value="{{ game.id }}">
+                                    <button type="submit" class="in-cart"><i class="fa-solid fa-check" style="padding-right: 4px;"></i>Currently in the cart</button>
+                                </form>
+                            {% else %}
+                                <form method="post" action="">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="game_id" value="{{ game.id }}">
+                                    <button type="submit" class="add-to-cart">Add to Cart</button>
+                                </form>
+                            {% endif %}
                         {% else %}
                             <span class="add-to-cart">Notify me when available</span>
                         {% endif %}

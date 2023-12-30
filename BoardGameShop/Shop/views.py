@@ -32,19 +32,21 @@ class GameView(View):
     def get(self, request, *args, **kwargs):
         game_id = kwargs.get('game_id')
         game = get_object_or_404(Game, id=game_id)
-        context = {'game':game}
+        cart = get_cart(request)
+        in_cart = is_game_in_cart(cart,game)
+        context = {'game':game, 'in_cart':in_cart}
         return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
         game_id = request.POST.get('game_id')
-        user = request.user
         game = get_object_or_404(Game, id=game_id)
-        cart = get_object_or_404(Cart, user__id=user.id)
+        cart = get_cart(request)
         if is_game_in_cart(cart, game):
             add_quantity(cart, game)
         else:
             cart.games.add(game)
-        context = {'game': game}
+        in_cart = is_game_in_cart(cart, game)
+        context = {'game': game, 'in_cart':in_cart}
         return render(request, self.template_name,context)
 
 class SearchGameView(View):

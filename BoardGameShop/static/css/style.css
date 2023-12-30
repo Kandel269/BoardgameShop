@@ -259,11 +259,29 @@ ul > li:hover > ol {
     font-size: 18px;
     margin-left: 20px;
     transition: background-color 0.3s ease;
+    letter-spacing: 1px;
+    color: #efefef;
 }
 .add-to-cart:hover {
     cursor: pointer;
-    color: #0a2b42;
+    color: #efefef;
     background-color: #1f81c7;
+}
+.in-cart {
+    padding: 10px 20px;
+    background-color: #009933;
+    border: 1px solid #00802b;
+    border-radius: 5px;
+    font-size: 18px;
+    margin-left: 20px;
+    transition: background-color 0.3s ease;
+    letter-spacing: 1px;
+    color: #efefef;
+}
+.in-cart:hover {
+    cursor: pointer;
+    color: #efefef;
+    background-color: #00b33c;
 }
 .game-info-right {
     float: left;
