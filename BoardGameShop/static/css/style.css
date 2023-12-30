@@ -251,7 +251,7 @@ ul > li:hover > ol {
     padding-left: 3px;
     line-height: 400%;
 }
-.add-to-cart {
+.typical-button {
     padding: 10px 20px;
     background-color: #1c74b2;
     border: 1px solid #18649a;
@@ -262,7 +262,7 @@ ul > li:hover > ol {
     letter-spacing: 1px;
     color: #efefef;
 }
-.add-to-cart:hover {
+.typical-button:hover {
     cursor: pointer;
     color: #efefef;
     background-color: #1f81c7;

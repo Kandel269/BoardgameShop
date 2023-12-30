@@ -32,11 +32,11 @@
                                 <form method="post" action="">
                                     {% csrf_token %}
                                     <input type="hidden" name="game_id" value="{{ game.id }}">
-                                    <button type="submit" class="add-to-cart">Add to Cart</button>
+                                    <button type="submit" class="typical-button">Add to Cart</button>
                                 </form>
                             {% endif %}
                         {% else %}
-                            <span class="add-to-cart">Notify me when available</span>
+                            <span class="typical-button">Notify me when available</span>
                         {% endif %}
                     </div>
                 </div>

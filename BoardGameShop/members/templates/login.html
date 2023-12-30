@@ -7,16 +7,22 @@
             <form method="POST" action="">
                 {% csrf_token %}
                 <div id="login_page_title">
-                    Login
+                    Login Page
                 </div>
                 <div class="login_form">
-                    <input type="text" name="username" placeholder="Username"/>
+                    <input class="login-form-field" type="text" name="username" placeholder="Username"/>
                 </div>
                 <div class="login_form">
-                    <input type="password" name="password" placeholder="Password">
+                    <input class="login-form-field" type="password" name="password" placeholder="Password">
+                </div>
+                <div class="login-forgot-password">
+                    Forgot your <a href="#" style="text-decoration: none;"><span style="color:#1f81c7">password?</span></a>
                 </div>
                 <div id="register_button_submit">
-                    <input type="submit" name="login_user" value="Login in">
+                    <input class="typical-button" style="margin-left: 0;" type="submit" name="login_user" value="Sign in">
+                </div>
+                <div id="login-register">
+                    No account? <a href="{% url 'register' %}" style="text-decoration: none;"><span style="color:#1f81c7">Create one here.</span></a>
                 </div>
             </form>
             {% for message in messages %}

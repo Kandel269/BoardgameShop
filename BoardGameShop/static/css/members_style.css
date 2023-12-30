@@ -1,6 +1,6 @@
 #register_page {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 30px;
     margin-bottom: 100px;
 }
 #register_page_title {
@@ -22,17 +22,21 @@
 .register_form {
     display: inline-block;
 }
-#register_button_submit {
+#log-button-submit {
    margin-top: 25px;
    margin-bottom: 25px;
 }
-#register_lgo_in {
-    font-size: 20px;
+#register_sign_in {
+    font-size: 22px;
 }
+#login-register {
+    font-size: 22px;
+}
+
 
 #login_page {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 30px;
     margin-bottom: 100px;
 }
 .login_form {
@@ -42,8 +46,10 @@
     font-size: 30px;
     margin-bottom: 25px;
 }
-
-
+.login-form-field {
+    width: 250px;
+    font-size: 15px;
+}
 
 #account_container {
     text-align: center;
