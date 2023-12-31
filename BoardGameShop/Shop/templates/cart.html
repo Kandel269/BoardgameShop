@@ -9,7 +9,13 @@
         {% if request.user.is_authenticated %}
             {% if games_dict %}
                 <div id="cart-describe">
+                    <div class="cart-describe-item">Delete game</div>
+                    <div class="cart-describe-item">Quantity</div>
+                    <div class="cart-describe-item">Value</div>
+                    <div class="cart-describe-item">Price for one game</div>
+                    <div class="cart-describe-title">Title</div>
                 </div>
+                <div style="clear:both"></div>
                 <div id="cart-products-list">
                     {% for game,quantity in games_dict.items %}
                         <div class="cart-product">
