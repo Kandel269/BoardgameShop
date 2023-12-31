@@ -24,7 +24,13 @@ class CartView(View):
     template_name = 'cart.html'
 
     def get(self, request, *args, **kwargs):
-        return render(request, self.template_name)
+        context = {}
+        user = request.user
+        if user.is_authenticated:
+            games_dict = get_quantity(user)
+            context['games_dict'] = games_dict
+
+        return render(request, self.template_name, context)
 
 class GameView(View):
     template_name = 'game.html'

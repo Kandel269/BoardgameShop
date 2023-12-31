@@ -3,16 +3,40 @@
 
 
 {% block content %}
-    <div class="cart">
+    <div class="cart-view">
         <h1 style="font-size: 30px;">Cart for {{ request.user.username }}</h1>
 
         {% if request.user.is_authenticated %}
-            {% if request.user.cart.games.all %}
-                <ul>
-                    {% for game in request.user.cart.games.all %}
-                        <li>{{ game.title }} - {{ game.price }}</li>
-                    {% endfor %}
-                </ul>
+            {% if games_dict %}
+                <div id="cart-describe">
+                </div>
+                <div id="cart-products-list">
+                    {% for game,quantity in games_dict.items %}
+                        <div class="cart-product">
+                            <div class="cart-product-image">
+                                <img src={{game.image.url}} alt="{{game.title}}" width="100" height="100">
+                            </div>
+                            <div class="cart-product-title">
+                                {{ game.title }}
+                            </div>
+                            <div class="cart-item-details">
+                                {{ game.price }}
+                            </div>
+                            <div class="cart-item-details">
+                                {{ quantity.1 }}
+                            </div>
+                            <div class="cart-item-details">
+                                {{ quantity.0 }}
+                            </div>
+                            <div class="cart-item-details">
+                                x
+                            </div>
+                        </div>
+                        <div style="clear:both"></div>
+                        {% endfor %}
+                </div>
+                <div style="clear:both"></div>
+
             {% else %}
                 <img src="/media/website_images/cart_image.jpg" alt="Opis obrazu">
                 <p style="font-size: 25px; margin-bottom: 5px;">Your cart is empty.</p>

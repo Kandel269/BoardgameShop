@@ -11,35 +11,42 @@
                 <div class="game-title">
                     {{ game.title }}
                 </div>
-                <div class="game-short-describe">
-                    Short desrcibe Short desrcibe Short desrcibe Short desrcibe Short desrcibe Short desrcibe Short desrcibe Short desrcibe Short desrcibe Short desrcibe Short desrcibe Short desrcibe.
-                </div>
 
-                <div class="game-info-left">
-                    <div class="game-info-left-top">
-                        <h1>{{ game.price }}$</h1><h2> per item</h2>
+                <section>
+                    <div class="game-short-describe">
+                        Short desrcibe Short desrcibe Short desrcibe Short desrcibe Short desrcibe Short desrcibe Short desrcibe Short desrcibe Short desrcibe Short desrcibe Short desrcibe Short desrcibe.
                     </div>
-                    <div style="clear:both"></div>
-                    <div class="game-info-left-bottom">
-                        {% if game.stock != 0 %}
-                            {% if in_cart %}
-                                <form method="post" action="">
-                                    {% csrf_token %}
-                                    <input type="hidden" name="game_id" value="{{ game.id }}">
-                                    <button type="submit" class="in-cart"><i class="fa-solid fa-check" style="padding-right: 4px;"></i>Currently in the cart</button>
-                                </form>
+                </section>
+
+                <section>
+                    <div class="game-info-left">
+                        <div class="game-info-left-top">
+                            <h1>{{ game.price }}$</h1><h2> per item</h2>
+                        </div>
+                        <div style="clear:both"></div>
+                        <div class="game-info-left-bottom">
+                            {% if game.stock != 0 %}
+                                {% if in_cart %}
+                                    <form method="post" action="">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="game_id" value="{{ game.id }}">
+                                        <button type="submit" class="in-cart"><i class="fa-solid fa-check" style="padding-right: 4px;"></i>Currently in the cart</button>
+                                    </form>
+                                {% else %}
+                                    <form method="post" action="">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="game_id" value="{{ game.id }}">
+                                        <button type="submit" class="typical-button">Add to Cart</button>
+                                    </form>
+                                {% endif %}
                             {% else %}
-                                <form method="post" action="">
-                                    {% csrf_token %}
-                                    <input type="hidden" name="game_id" value="{{ game.id }}">
-                                    <button type="submit" class="typical-button">Add to Cart</button>
-                                </form>
+                                <span class="typical-button">Notify me when available</span>
                             {% endif %}
-                        {% else %}
-                            <span class="typical-button">Notify me when available</span>
-                        {% endif %}
+                        </div>
                     </div>
-                </div>
+                </section>
+
+                <section>
                 <div class="game-info-right">
                     <div class="game-info-right-top">
                         {% if game.stock != 0 %}
@@ -54,12 +61,16 @@
                         aaa
                     </div>
                 </div>
+                </section>
 
             </div>
         </div>
         <div style="clear:both"></div>
-        <div class="game-describe">
-            {{ game.description|linebreaks }}
-        </div>
+
+        <section>
+            <div class="game-describe">
+                {{ game.description|linebreaks }}
+            </div>
+        </section>
     </main>
 {% endblock content %}

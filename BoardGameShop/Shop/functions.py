@@ -15,3 +15,14 @@ def get_cart(request):
     cart = get_object_or_404(Cart, user__id=user.id)
     return cart
 
+def get_quantity(user):
+    games_dict = {}
+    for game in user.cart.games.all():
+        cart_item = CartItem.objects.filter(cart = user.cart, game = game).first()
+        cart_quantity = cart_item.quantity
+        total_price = cart_quantity * game.price
+        games_dict[game] = [cart_quantity,total_price]
+    return games_dict
+
+
+
