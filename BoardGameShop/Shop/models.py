@@ -34,6 +34,10 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = "Category"
+        verbose_name_plural = "Categories"
+
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     games = models.ManyToManyField(Game, through='OrderItem')

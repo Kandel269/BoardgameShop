@@ -61,21 +61,21 @@
                 <nav>
                     <div id="top_bar_nav">
                         <ul class="top_bar_menu">
-                            <li><a href ="#">Card games</a>
+                            <li><a href ="{% url 'category' category_name='Card-games' %}">Card games</a>
                                 <ol>
                                     <li><a href ="{% url 'category' category_name='Flesh-and-blood' %}">Flesh and blood</a></li>
                                     <li><a href ="{% url 'category' category_name='Magic-the-gathering' %}">Magic the gathering</a></li>
                                     <li><a href ="{% url 'category' category_name='Pokemon' %}">Pokemon</a></li>
                                 </ol>
                             </li>
-                            <li><a href ="#">Battle games</a>
+                            <li><a href ="{% url 'category' category_name='Battle-games' %}">Battle games</a>
                                 <ol>
                                     <li><a href ="{% url 'category' category_name='Warhammer' %}">Warhammer</a></li>
                                     <li><a href ="{% url 'category' category_name='Blood-Bowl' %}">Blood Bowl</a></li>
                                     <li><a href ="{% url 'category' category_name='Warcry' %}">Warcry</a></li>
                                 </ol>
                             </li>
-                            <li><a href ="#">Board games</a>
+                            <li><a href ="{% url 'category' category_name='Board-games' %}">Board games</a>
                                 <ol>
                                     <li><a href ="{% url 'category' category_name='Strategy' %}">Strategy</a></li>
                                     <li><a href ="{% url 'category' category_name='Party' %}">Party</a></li>
