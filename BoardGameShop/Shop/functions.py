@@ -21,7 +21,7 @@ def get_quantity(user):
         cart_item = CartItem.objects.filter(cart = user.cart, game = game).first()
         cart_quantity = cart_item.quantity
         total_price = cart_quantity * game.price
-        games_dict[game] = [cart_quantity,total_price]
+        games_dict[game] = [cart_quantity,total_price, cart_item.id]
     return games_dict
 
 

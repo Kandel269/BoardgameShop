@@ -1,5 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import View
+from django.views.generic import DeleteView
+from django.urls import reverse_lazy
+
 from .models import *
 from .functions import *
 
@@ -63,3 +66,8 @@ class SearchGameView(View):
         games = Game.objects.filter(title__icontains=find_game)
         context = {'games': games, 'find_game':find_game}
         return render(request, self.template_name, context)
+
+class GameFromCartDeleteView(DeleteView):
+    model = CartItem
+    template_name = "cart_confirm_delete_product.html"
+    success_url = reverse_lazy("cart")

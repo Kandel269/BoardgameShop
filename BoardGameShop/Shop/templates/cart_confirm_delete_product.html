@@ -1,0 +1,15 @@
+{% extends 'top_bar.html' %}
+{% load static %}
+
+
+
+{% block content %}
+  <h1>Usuń {{ object }}</h1>
+  <form method="post" action="">
+    {% csrf_token %}
+    <p>Czy na pewno chcesz usunąć "{{ object }}"?</p>
+    <input type="submit" value="Usuń">
+  </form>
+  <a href="{% url 'cart' %}">Anuluj</a>
+
+{% endblock content %}

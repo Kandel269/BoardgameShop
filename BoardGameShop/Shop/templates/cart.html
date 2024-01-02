@@ -17,7 +17,7 @@
                 </div>
                 <div style="clear:both"></div>
                 <div id="cart-products-list">
-                    {% for game,quantity in games_dict.items %}
+                    {% for game,describe in games_dict.items %}
                         <div class="cart-product">
                             <div class="cart-product-image">
                                 <img src={{game.image.url}} alt="{{game.title}}" width="100" height="100">
@@ -29,19 +29,22 @@
                                 {{ game.price }}
                             </div>
                             <div class="cart-item-details">
-                                {{ quantity.1 }}
+                                {{ describe.1 }}
                             </div>
                             <div class="cart-item-details">
-                                {{ quantity.0 }}
+                                {{ describe.0 }}
                             </div>
                             <div class="cart-item-details">
-                                x
+                                <a href="{% url 'cart-delete-game' describe.2 %}" class="no_change3">
+                                    <i class="fa-solid fa-circle-xmark fa-xl"></i>
+                                </a>
                             </div>
                         </div>
                         <div style="clear:both"></div>
                         {% endfor %}
                 </div>
                 <div style="clear:both"></div>
+                <div class="div-button">Place an order</div>
 
             {% else %}
                 <img src="/media/website_images/cart_image.jpg" alt="Opis obrazu">
