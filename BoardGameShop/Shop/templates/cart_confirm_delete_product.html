@@ -4,12 +4,22 @@
 
 
 {% block content %}
-  <h1>Usuń {{ object }}</h1>
-  <form method="post" action="">
-    {% csrf_token %}
-    <p>Czy na pewno chcesz usunąć "{{ object }}"?</p>
-    <input type="submit" value="Usuń">
-  </form>
-  <a href="{% url 'cart' %}">Anuluj</a>
-
+  <main>
+    <div class="center-box">
+      <h1>Delete {{ object }}</h1>
+      <p>Are you sure you want to delete "{{ object }}"?</p>
+      <div class="cart-delete-games-buttons-container">
+        <div class="cart-delete-games-buttons-left">
+          <form method="post" action="">
+            {% csrf_token %}
+            <input type="submit" value="Delete" class="typical-button" style="height: 43px;">
+          </form>
+        </div>
+        <div class="cart-delete-games-buttons-right">
+          <a class="typical-a-button" href="{% url 'cart' %}">Cancel</a>
+        </div>
+      </div>
+    </div>
+    <div style="clear:both; margin-bottom: 20px;"></div>
+  </main>
 {% endblock content %}

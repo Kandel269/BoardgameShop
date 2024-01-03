@@ -446,3 +446,45 @@ ul > li:hover > ol {
     color: #efefef;
     background-color: #1f81c7;
 }
+.center-box {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.cart-delete-games-buttons-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+}
+.cart-delete-games-buttons-left {
+    float: left;
+    width: 140px;
+    padding: 0px 5px;
+    display: flex;
+    justify-content: center;
+}
+.cart-delete-games-buttons-right {
+    float: left;
+    width: 140px;
+    padding: 0px 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.typical-a-button {
+    padding: 10px 20px;
+    background-color: #1c74b2;
+    border: 1px solid #18649a;
+    border-radius: 5px;
+    font-size: 18px;
+    margin-left: 20px;
+    transition: background-color 0.3s ease;
+    letter-spacing: 1px;
+    color: #efefef;
+    text-decoration: none;
+}
+.typical-a-button:hover {
+    cursor: pointer;
+    color: #efefef;
+    background-color: #1f81c7;
+}
