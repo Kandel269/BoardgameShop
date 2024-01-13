@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'Shop',
     'fontawesomefree',
     'members',
+    'formtools',
 
     'django.contrib.admin',
     'django.contrib.auth',

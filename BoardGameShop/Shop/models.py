@@ -69,3 +69,10 @@ class CartItem(models.Model):
 
     def __str__(self):
         return f'{self.quantity} x {self.game.title}'
+
+class PersonalData(models.Model):
+    postal_code = models.CharField(max_length=255, blank=True, null=True)
+    house_number = models.CharField(max_length=255, blank=True, null=True)
+    local_number = models.CharField(max_length=255, blank=True, null=True)
+    street = models.CharField(max_length=255, blank=True, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)

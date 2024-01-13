@@ -7,6 +7,8 @@ from . import forms
 from Shop.models import Cart
 
 
+
+
 class LoginPage(View):
     template_name = 'login.html'
 
@@ -53,5 +55,12 @@ class LogoutUser(View):
 class AccountPage(View):
     template_name = 'account.html'
     def get(self, request):
-        return render(request,'account.html')
+        return render(request,self.template_name)
+
+class PersonalData(View):
+    template_name = 'personal_data.html'
+    def get(self, request):
+        form = forms.EditPersonalDataForm()
+        context = {'form':form}
+        return render(request, self.template_name, context)
 
