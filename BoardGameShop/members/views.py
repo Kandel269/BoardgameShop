@@ -1,10 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 
 from . import forms
-from Shop.models import Cart
+from Shop.models import Cart, PersonalData # noqa
 
 
 
@@ -57,10 +57,21 @@ class AccountPage(View):
     def get(self, request):
         return render(request,self.template_name)
 
-class PersonalData(View):
+class PersonalDataView(View):
     template_name = 'personal_data.html'
+
+
     def get(self, request):
-        form = forms.EditPersonalDataForm()
+        user = request.user
+        personal_data = get_object_or_404(PersonalData, user=user)
+        user_data = {'first_name': user.first_name,
+                     'last_name': user.last_name,
+                     'e_mail_address': user.email,
+                     'postal_code': personal_data.postal_code,
+                     'house_number': personal_data.house_number,
+                     'local_number': personal_data.local_number,
+                     'street': personal_data.street}
+        form = forms.EditPersonalDataForm(initial=user_data)
         context = {'form':form}
         return render(request, self.template_name, context)
 

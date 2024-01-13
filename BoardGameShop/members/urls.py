@@ -9,7 +9,7 @@ urlpatterns = [
     path('logout/', views.LogoutUser.as_view(), name='logout'),
     path('register/', views.RegisterPage.as_view(), name='register'),
     path('account/', views.AccountPage.as_view(), name='account'),
-    path('personal-data/', views.PersonalData.as_view(), name='personal_data'),
+    path('personal-data/', views.PersonalDataView.as_view(), name='personal_data'),
 ]
 
 if settings.DEBUG:
