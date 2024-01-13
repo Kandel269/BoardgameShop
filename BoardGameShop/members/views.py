@@ -42,6 +42,8 @@ class RegisterPage(View):
             messages.success(request, 'Account was created for' + user.username)
             cart = Cart(user=user)
             cart.save()
+            personal_data = PersonalData(user=user)
+            personal_data.save()
             return redirect('login')
         else:
             context = {'form': form}
@@ -75,3 +77,30 @@ class PersonalDataView(View):
         context = {'form':form}
         return render(request, self.template_name, context)
 
+    def post(self, request, *args, **kwargs):
+        form = forms.EditPersonalDataForm(request.POST)
+        if form.is_valid():
+            user = request.user
+
+            postal_code_value = form.cleaned_data['postal_code']
+            house_number_value = form.cleaned_data['house_number']
+            local_number_value = form.cleaned_data['local_number']
+            street_value = form.cleaned_data['street']
+            personal_data = get_object_or_404(PersonalData, user=user)
+            personal_data.postal_code = postal_code_value
+            personal_data.house_number = house_number_value
+            personal_data.local_number = local_number_value
+            personal_data.street = street_value
+            personal_data.save()
+
+            first_name_value = form.cleaned_data['first_name']
+            last_name_value = form.cleaned_data['last_name']
+            e_mail_value = form.cleaned_data['e_mail_address']
+            user.email = e_mail_value
+            user.last_name = last_name_value
+            user.first_name = first_name_value
+            user.save()
+            return redirect('home')
+        else:
+            context = {'form': form}
+            return render(request, self.template_name, context)

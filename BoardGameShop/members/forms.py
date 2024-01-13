@@ -10,17 +10,13 @@ class CreateUserForm(UserCreationForm):
         model = User
         fields = ['username','email','first_name','last_name','password1','password2']
 
-class EditPersonalDataForm(forms.ModelForm):
-    first_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'placeholder': ''}))
-    last_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'placeholder': ''}))
-    e_mail_address = forms.EmailField(label="E-mail", max_length=255, widget=forms.TextInput(attrs={'placeholder': ''}))
-    class Meta:
-        model = PersonalData
-        fields = ['postal_code','house_number','local_number','street']
-        widgets = {
-            'postal_code': forms.TextInput(attrs={'placeholder': ''}),
-            'house_number': forms.TextInput(attrs={'placeholder': ''}),
-            'local_number': forms.TextInput(attrs={'placeholder': ''}),
-            'street': forms.TextInput(attrs={'placeholder': ''}),
-        }
+class EditPersonalDataForm(forms.Form):
+    first_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'placeholder': ''}), required=None)
+    last_name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'placeholder': ''}),  required=None)
+    e_mail_address = forms.EmailField(label="E-mail", max_length=255, widget=forms.TextInput(attrs={'placeholder': ''}), required=None)
+
+    postal_code = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'placeholder': ''}), required=None)
+    house_number = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'placeholder': ''}),required=None)
+    local_number = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'placeholder': ''}),required=None)
+    street = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'placeholder': ''}),required=None)
 
