@@ -8,6 +8,8 @@ from formtools.wizard.views import SessionWizardView
 from .models import *
 from .functions import *
 from .forms import *
+from members.forms import EditPersonalDataForm # noqa
+
 
 class HomeView(View):
     def get(self, request):
@@ -76,8 +78,19 @@ class GameFromCartDeleteView(DeleteView):
     success_url = reverse_lazy("cart")
 
 class OrderWizardView(SessionWizardView):
-    form_list = [OrderPaymentForm]
+    form_list = [OrderDetailForm,EditPersonalDataForm,DeliveryForm,ConfirmOrder]
     template_name = "place_an_order.html"
+
+
+    # def get_context_data(self, form, **kwargs):
+    #     context = super().get_context_data(form=form, **kwargs)
+    #     if self.steps.current == '1':
+    #         personal_data = get_object_or_404(PersonalData, user=self.request.user)
+    #         customer_pk = self.storage.get_step_data('0')['0-customer']
+    #         customer = get_object_or_404(Customer, pk=customer_pk)
+    #
+    #         context.update({'customer': customer})
+    #     return context
 
     def done(self, form_list, **kwargs):
         return render(self.request,'home.html')
