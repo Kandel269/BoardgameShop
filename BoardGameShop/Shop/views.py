@@ -7,6 +7,7 @@ from formtools.wizard.views import SessionWizardView
 
 from .models import *
 from .functions import *
+from .forms import *
 
 class HomeView(View):
     def get(self, request):
@@ -74,6 +75,9 @@ class GameFromCartDeleteView(DeleteView):
     template_name = "cart_confirm_delete_product.html"
     success_url = reverse_lazy("cart")
 
-class ContactWizard(SessionWizardView):
+class OrderWizardView(SessionWizardView):
+    form_list = [OrderPaymentForm]
+    template_name = "place_an_order.html"
+
     def done(self, form_list, **kwargs):
-        return render(self.request,)
+        return render(self.request,'home.html')

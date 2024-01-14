@@ -11,6 +11,7 @@ urlpatterns = [
     path('game/<int:game_id>/', views.GameView.as_view(), name='game'),
     path('search-game/', views.SearchGameView.as_view(), name='search_game'),
     path('delete-game/<int:pk>/', views.GameFromCartDeleteView.as_view(), name='cart-delete-game'),
+    path('place-an-oder/',views.OrderWizardView.as_view(), name='place_an_order')
 ]
 
 if settings.DEBUG:

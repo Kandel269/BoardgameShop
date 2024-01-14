@@ -19,7 +19,6 @@ class Game(models.Model):
         img = Image.open(self.image.path)
         target_size = (300, 300)
 
-        # Prosty warunek sprawdzający, czy obraz ma inny rozmiar niż docelowy
         if img.size != target_size:
             img = img.resize(target_size)
             img.save(self.image.path)
@@ -38,11 +37,36 @@ class Category(models.Model):
         verbose_name = "Category"
         verbose_name_plural = "Categories"
 
+class DeliveryAddress(models.Model):
+    postal_code = models.CharField(max_length=255)
+    house_number = models.CharField(max_length=255)
+    local_number = models.CharField(max_length=255, blank=True, null=True)
+    street = models.CharField(max_length=255)
+
+class Payment(models.Model):
+    name = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='game_images/')
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+        img = Image.open(self.image.path)
+        target_size = (80, 80)
+
+        if img.size != target_size:
+            img = img.resize(target_size)
+            img.save(self.image.path)
+
+    def __str__(self):
+        return self.name
+
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     games = models.ManyToManyField(Game, through='OrderItem')
     ordered_date = models.DateTimeField(auto_now_add=True)
     total_price = models.DecimalField(max_digits=10, decimal_places=2)
+    delivery_address = models.ForeignKey(DeliveryAddress, on_delete=models.PROTECT, default=None)
+    payment = models.ForeignKey(Payment, on_delete=models.PROTECT, default=None)
 
     def __str__(self):
         return f"Order #{self.pk}"
@@ -76,3 +100,4 @@ class PersonalData(models.Model):
     local_number = models.CharField(max_length=255, blank=True, null=True)
     street = models.CharField(max_length=255, blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+

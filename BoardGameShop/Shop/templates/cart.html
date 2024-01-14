@@ -44,8 +44,9 @@
                         {% endfor %}
                 </div>
                 <div style="clear:both"></div>
-                <div class="div-button">Place an order</div>
-
+                <a href="{% url 'place_an_order' %}" class="no_change">
+                    <div class="div-button">Place an order</div>
+                </a>
             {% else %}
                 <img src="/media/website_images/cart_image.jpg" alt="Opis obrazu">
                 <p style="font-size: 25px; margin-bottom: 5px;">Your cart is empty.</p>
