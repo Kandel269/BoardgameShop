@@ -120,7 +120,7 @@ body {
     font-size: 25px;
 }
 
-#footer_links li:hover {
+#footer_links a:hover {
     color: #0a2b42;
     cursor: pointer;
 }
