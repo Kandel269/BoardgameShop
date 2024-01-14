@@ -1,28 +1,28 @@
-#register_page {
+.form_page_container {
     text-align: center;
     margin-top: 30px;
     margin-bottom: 100px;
 }
-#register_page_title {
+.form_page_title {
     font-size: 30px;
     margin-bottom: 25px;
 }
 
-.register_field {
+.form_field_container {
     margin-bottom: 10px;
     width: 100%;
 }
-.register_form_label {
+.form_field_label {
     display: inline-block;
     margin-right: 10px;
     width: 250px;
     font-size: 20px;
     text-align: left;
 }
-.register_form {
+.form_field {
     display: inline-block;
 }
-#log-button-submit {
+.log-button-submit {
    margin-top: 25px;
    margin-bottom: 25px;
 }

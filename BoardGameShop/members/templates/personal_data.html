@@ -2,11 +2,53 @@
 {% load static %}
 
 {% block content %}
-    <div>
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="save_record"/>
-        </form>
-    </div>
+    <main>
+        <div class="form_page_container">
+            <div class="form_page_title">
+                Your personal data
+            </div>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form_field_container">
+                    <div class='form_field_label'>{{ form.first_name.label }}</div>
+                    <div class='form_field'>{{ form.first_name }}</div>
+                </div>
+
+                <div class="form_field_container">
+                    <div class='form_field_label'>{{ form.last_name.label }}</div>
+                    <div class='form_field'>{{ form.last_name }}</div>
+                </div>
+
+                <div class="form_field_container">
+                    <div class='form_field_label'>{{ form.e_mail_address.label }}</div>
+                    <div class='form_field'>{{ form.e_mail_address }}</div>
+                </div>
+
+                <div class="form_field_container">
+                    <div class='form_field_label'>{{ form.postal_code.label }}</div>
+                    <div class='form_field'>{{ form.postal_code }}</div>
+                </div>
+
+                <div class="form_field_container">
+                    <div class='form_field_label'>{{ form.house_number.label }}</div>
+                    <div class='form_field'>{{ form.house_number }}</div>
+                </div>
+
+                <div class="form_field_container">
+                    <div class='form_field_label'>{{ form.local_number.label }}</div>
+                    <div class='form_field'>{{ form.local_number }}</div>
+                </div>
+
+                <div class="form_field_container">
+                    <div class='form_field_label'>{{ form.street.label }}</div>
+                    <div class='form_field'>{{ form.street }}</div>
+                </div>
+
+                <div style="clear:both"></div>
+                <div class="log-button-submit">
+                    <input class="typical-button" style="margin: 0;" type=submit value="save"/>
+                </div>
+            </form>
+        </div>
+    </main>
 {% endblock content %}

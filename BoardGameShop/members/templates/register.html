@@ -3,44 +3,44 @@
 
 {% block content %}
     <main>
-        <div id="register_page">
-            <div id="register_page_title">
+        <div class="form_page_container">
+            <div class="form_page_title">
                 Register your account
             </div>
             <form method="POST" action="">
                 {% csrf_token %}
-                <div class="register_field">
-                    <div class='register_form_label'>{{form.username.label}}</div>
-                    <div class='register_form'>{{form.username}}</div>
+                <div class="form_field_container">
+                    <div class='form_field_label'>{{form.username.label}}</div>
+                    <div class='form_field'>{{form.username}}</div>
                 </div>
 
-                <div class="register_field">
-                    <div class='register_form_label'>{{form.email.label}}</div>
-                    <div class='register_form'>{{form.email}}</div>
+                <div class="form_field_container">
+                    <div class='form_field_label'>{{form.email.label}}</div>
+                    <div class='form_field'>{{form.email}}</div>
                 </div>
 
-                <div class="register_field">
-                    <div class='register_form_label'>{{form.first_name.label}}</div>
-                    <div class='register_form'>{{form.first_name}}</div>
+                <div class="form_field_container">
+                    <div class='form_field_label'>{{form.first_name.label}}</div>
+                    <div class='form_field'>{{form.first_name}}</div>
                 </div>
 
-                <div class="register_field">
-                    <div class='register_form_label'>{{form.last_name.label}}</div>
-                    <div class='register_form'>{{form.last_name}}</div>
+                <div class="form_field_container">
+                    <div class='form_field_label'>{{form.last_name.label}}</div>
+                    <div class='form_field'>{{form.last_name}}</div>
                 </div>
 
-                <div class="register_field">
-                    <div class='register_form_label'>{{form.password1.label}}</div>
-                    <div class='register_form'>{{form.password1}}</div>
+                <div class="form_field_container">
+                    <div class='form_field_label'>{{form.password1.label}}</div>
+                    <div class='form_field'>{{form.password1}}</div>
                 </div>
 
-                <div class="register_field">
-                    <div class='register_form_label'>{{form.password2.label}}</div>
-                    <div class='register_form'>{{form.password2}}</div>
+                <div class="form_field_container">
+                    <div class='form_field_label'>{{form.password2.label}}</div>
+                    <div class='form_field'>{{form.password2}}</div>
                 </div>
 
                 <div style="clear:both"></div>
-                <div id="log-button-submit">
+                <div class="log-button-submit">
                     <input class="typical-button" style="margin: 0;" type="submit" name="Create_user" value="Register account">
                 </div>
                 <div id="register_sign_in">
