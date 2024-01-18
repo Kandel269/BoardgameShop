@@ -488,3 +488,41 @@ ul > li:hover > ol {
     color: #efefef;
     background-color: #1f81c7;
 }
+
+#contact-container{
+    padding-top: 20px;
+    padding-bottom: 30px;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.contact-subb-c{
+    width: 600px;
+    float: left;
+}
+.contact-title{
+    text-align: center;
+}
+.contact-info{
+    font-size: 17px;
+    padding-bottom: 2px;
+}
+.contact-strong{
+    font-weight: bold;
+}
+.contact-subb-down{
+    margin-top: 10px;
+}
+
+.contact-subb-down-info > p {
+    width: 40%;
+    float: left;
+    margin: 0px;
+    padding-bottom: 4px;
+}
+.contact-subb-down-info > span {
+    width: 60%;
+    float: left;
+    margin: 0px;
+    padding-bottom: 4px;
+}

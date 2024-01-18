@@ -82,7 +82,7 @@
                                     <li><a href ="{% url 'category' category_name='Adventure' %}">Adventure</a></li>
                                 </ol>
                             </li>
-                            <li><a href ="#">Contact</a></li>
+                            <li><a href ="{% url 'contact' %}">Contact</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -111,7 +111,7 @@
                         <li><h2>Informations</h2></li>
                         <li><i class="fa-solid fa-arrow-right"></i> About our shop</li>
                         <li><i class="fa-solid fa-arrow-right"></i> Privacy</li>
-                        <li><i class="fa-solid fa-arrow-right"></i> Contact us</li>
+                        <li><a href="{% url 'contact' %}" class="no_change"><i class="fa-solid fa-arrow-right"></i> Contact us</a></li>
                         <li><i class="fa-solid fa-arrow-right"></i> Terms and Condition</li>
                     </ul>
                     <ul id="list_products">

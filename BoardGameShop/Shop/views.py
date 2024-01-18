@@ -94,3 +94,9 @@ class OrderWizardView(SessionWizardView):
 
     def done(self, form_list, **kwargs):
         return render(self.request,'home.html')
+
+class ContacView(View):
+    template_name = "contact.html"
+
+    def get(self,request):
+        return render(request, self.template_name)
