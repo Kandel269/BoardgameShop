@@ -489,6 +489,7 @@ ul > li:hover > ol {
     background-color: #1f81c7;
 }
 
+
 #contact-container{
     padding-top: 20px;
     padding-bottom: 30px;
@@ -513,16 +514,31 @@ ul > li:hover > ol {
 .contact-subb-down{
     margin-top: 10px;
 }
-
 .contact-subb-down-info > p {
     width: 40%;
     float: left;
     margin: 0px;
     padding-bottom: 4px;
+    font-weight: bold;
 }
 .contact-subb-down-info > span {
     width: 60%;
     float: left;
     margin: 0px;
     padding-bottom: 4px;
+}
+
+
+#order-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#order-container > p {
+    text-align: center;
+}
+#order-buttons {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
 }

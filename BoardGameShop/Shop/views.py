@@ -81,6 +81,23 @@ class OrderWizardView(SessionWizardView):
     form_list = [OrderDetailForm,EditPersonalDataForm,DeliveryForm,ConfirmOrder]
     template_name = "place_an_order.html"
 
+    def get_form_initial(self, step):
+        initial = self.initial_dict.get(step, {})
+        user = self.request.user
+
+        if step == '1':
+            personal_data = get_object_or_404(PersonalData, user=user)
+            initial.update({
+                'first_name': user.first_name,
+                'last_name': user.last_name,
+                'e_mail_address': user.email,
+                'postal_code': personal_data.postal_code,
+                'house_number': personal_data.house_number,
+                'local_number': personal_data.local_number,
+                'street': personal_data.street,
+            })
+
+        return self.initial_dict.get(step, initial)
 
     # def get_context_data(self, form, **kwargs):
     #     context = super().get_context_data(form=form, **kwargs)
