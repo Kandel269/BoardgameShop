@@ -99,15 +99,34 @@ class OrderWizardView(SessionWizardView):
 
         return self.initial_dict.get(step, initial)
 
-    # def get_context_data(self, form, **kwargs):
-    #     context = super().get_context_data(form=form, **kwargs)
-    #     if self.steps.current == '1':
-    #         personal_data = get_object_or_404(PersonalData, user=self.request.user)
-    #         customer_pk = self.storage.get_step_data('0')['0-customer']
-    #         customer = get_object_or_404(Customer, pk=customer_pk)
-    #
-    #         context.update({'customer': customer})
-    #     return context
+    def get_context_data(self, form, **kwargs):
+        context = super().get_context_data(form=form, **kwargs)
+        step = self.steps.current
+
+        if step == '3':
+            step_0_data = self.get_cleaned_data_for_step('0')
+            step_1_data = self.get_cleaned_data_for_step('1')
+            step_2_data = self.get_cleaned_data_for_step('2')
+
+            payment_name = step_0_data.get('payment')
+            payment = get_object_or_404(Payment, name=payment_name)
+            context['payment'] = payment
+
+            delivery_name = step_2_data.get('delivery')
+            delivery = get_object_or_404(Delivery, name=delivery_name)
+            context['delivery'] = delivery
+
+            context['step_1_data'] = {
+                'first_name': step_1_data.get('first_name'),
+                'last_name': step_1_data.get('last_name'),
+                'e_mail_address': step_1_data.get('e_mail_address'),
+                'postal_code': step_1_data.get('postal_code'),
+                'house_number': step_1_data.get('house_number'),
+                'local_number': step_1_data.get('local_number'),
+                'street': step_1_data.get('street')
+            }
+
+        return context
 
     def done(self, form_list, **kwargs):
         return render(self.request,'home.html')

@@ -1,0 +1,93 @@
+.button-logout {
+    background-color: #2F3336;
+    color: #efefef;
+    padding: 5px 10px;
+    border: 1px solid #ff3333;
+    border-radius: 5px;
+    width: 100px;
+    margin: auto;
+    transition: background-color 1s ease;
+    text-align: center;
+    font-size: 18px;
+}
+.button-logout:hover {
+    cursor: pointer;
+    background-color: #ff1a1a;
+}
+
+.log-button-submit {
+   margin-top: 25px;
+   margin-bottom: 25px;
+}
+
+.button_start_shopping {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1c74b2;
+    color: white;
+    text-decoration: none;
+    border: 1px solid #18649a;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 25px;
+}
+.button_start_shopping:hover {
+    background-color: #1f81c7;
+    color: #0a2b42;
+}
+
+.typical-button {
+    padding: 10px 20px;
+    background-color: #1c74b2;
+    border: 1px solid #18649a;
+    border-radius: 5px;
+    font-size: 18px;
+    margin-left: 20px;
+    transition: background-color 0.3s ease;
+    letter-spacing: 1px;
+    color: #efefef;
+}
+.typical-button:hover {
+    cursor: pointer;
+    color: #efefef;
+    background-color: #1f81c7;
+}
+
+.div-button {
+    padding: 10px 20px;
+    background-color: #1c74b2;
+    border: 1px solid #18649a;
+    border-radius: 5px;
+    font-size: 18px;
+    margin-left: 20px;
+    transition: background-color 0.3s ease;
+    letter-spacing: 1px;
+    color: #efefef;
+    width: 120px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    letter-spacing: 1px;
+}
+.div-button:hover {
+    cursor: pointer;
+    color: #efefef;
+    background-color: #1f81c7;
+}
+.typical-a-button {
+    padding: 10px 20px;
+    background-color: #1c74b2;
+    border: 1px solid #18649a;
+    border-radius: 5px;
+    font-size: 18px;
+    margin-left: 20px;
+    transition: background-color 0.3s ease;
+    letter-spacing: 1px;
+    color: #efefef;
+    text-decoration: none;
+}
+.typical-a-button:hover {
+    cursor: pointer;
+    color: #efefef;
+    background-color: #1f81c7;
+}

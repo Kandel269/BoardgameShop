@@ -11,6 +11,54 @@
         <div id="order-container">
             <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
             <form action="" method="post">{% csrf_token %}
+            {% if wizard.steps.step1 == 4 %}
+                <div id="order-summary-title">
+                    <h1>Summary</h1>
+                </div>
+                <div id="order-summary-left">
+                    <div class="order-summary-sub-title" style="margin-left: 25%;">
+                        Delivery Address
+                    </div>
+                    <p>First name:</p> <span>{{ step_1_data.first_name }}</span>
+                    <p>Last name:</p> <span>{{ step_1_data.last_name }}</span>
+                    <p>E-mail:</p> <span>{{ step_1_data.e_mail_address }}</span>
+                    <p>Postal-code:</p> <span>{{ step_1_data.postal_code }}</span>
+                    <p>House number:</p> <span>{{ step_1_data.house_number }}</span>
+                    <p>Local number:</p> <span>{{ step_1_data.local_number }}</span>
+                    <p>Street:</p> <span>{{ step_1_data.street }}</span>
+                </div>
+                <div id="order-summary-middle">
+                    <div class="order-summary-sub-title" style="text-align: center;">
+                        Payment
+                    </div>
+                    <div class="order-summary-img">
+                        <img src={{payment.image.url}} alt="sss" width="240" height="160">
+                    </div>
+                </div>
+                <div id="order-summary-right">
+                     <div class="order-summary-sub-title" style="text-align: center;">
+                        Delivery method
+                    </div>
+                    <div class="order-summary-img">
+                        <img src={{delivery.image.url}} alt="sss" width="240" height="160">
+                    </div>
+                    {{ step_2_data.delivery }}
+                </div>
+                <div style="clear:both"></div>
+                <hr>
+                <div id="order-summary-price">
+                    <div>
+                        <div class="price-describe-item">Games</div>
+                        <div class="price-describe-item">Delivery</div>
+                        <div class="price-describe-item">Total</div>
+                    </div>
+                    <div style="clear:both"></div>
+                    <div>
+
+                        {{ delivery.price }}
+                    </div>
+                </div>
+            {% else %}
             <div id="order-form">
                 <table>
                 {{ wizard.management_form }}
@@ -24,12 +72,13 @@
                 {% endif %}
                 </table>
             </div>
-            <div id ="order-buttons">
+            {% endif %}
+            <div id ="order-buttons-container">
                 {% if wizard.steps.prev %}
-                <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">{% translate "first step" %}</button>
-                <button name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">{% translate "prev step" %}</button>
+                <button class="typical-button" name="wizard_goto_step" type="submit" value="{{ wizard.steps.first }}">{% translate "First step" %}</button>
+                <button class="typical-button" name="wizard_goto_step" type="submit" value="{{ wizard.steps.prev }}">{% translate "Prev step" %}</button>
                 {% endif %}
-                <input type="submit" value="{% translate 'submit' %}"/>
+                <input class="typical-button" type="submit" value="{% translate 'Submit' %}"/>
             </div>
             </form>
         </div>

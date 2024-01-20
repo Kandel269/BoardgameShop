@@ -45,13 +45,13 @@ class DeliveryAddress(models.Model):
 
 class Payment(models.Model):
     name = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='game_images/')
+    image = models.ImageField(upload_to='website_images/')
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
 
         img = Image.open(self.image.path)
-        target_size = (80, 80)
+        target_size = (300, 300)
 
         if img.size != target_size:
             img = img.resize(target_size)
@@ -60,6 +60,28 @@ class Payment(models.Model):
     def __str__(self):
         return self.name
 
+class Delivery(models.Model):
+    name = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='website_images/')
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+        img = Image.open(self.image.path)
+        target_size = (300, 300)
+
+        if img.size != target_size:
+            img = img.resize(target_size)
+            img.save(self.image.path)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "Delivery"
+        verbose_name_plural = "Delivery"
+
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     games = models.ManyToManyField(Game, through='OrderItem')
@@ -67,6 +89,7 @@ class Order(models.Model):
     total_price = models.DecimalField(max_digits=10, decimal_places=2)
     delivery_address = models.ForeignKey(DeliveryAddress, on_delete=models.PROTECT, default=None)
     payment = models.ForeignKey(Payment, on_delete=models.PROTECT, default=None)
+    delivery = models.ForeignKey(Delivery, on_delete=models.PROTECT, default=None)
 
     def __str__(self):
         return f"Order #{self.pk}"

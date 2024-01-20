@@ -251,22 +251,8 @@ ul > li:hover > ol {
     padding-left: 3px;
     line-height: 400%;
 }
-.typical-button {
-    padding: 10px 20px;
-    background-color: #1c74b2;
-    border: 1px solid #18649a;
-    border-radius: 5px;
-    font-size: 18px;
-    margin-left: 20px;
-    transition: background-color 0.3s ease;
-    letter-spacing: 1px;
-    color: #efefef;
-}
-.typical-button:hover {
-    cursor: pointer;
-    color: #efefef;
-    background-color: #1f81c7;
-}
+
+
 .in-cart {
     padding: 10px 20px;
     background-color: #009933;
@@ -425,27 +411,7 @@ ul > li:hover > ol {
     justify-content: center;
 }
 
-.div-button {
-    padding: 10px 20px;
-    background-color: #1c74b2;
-    border: 1px solid #18649a;
-    border-radius: 5px;
-    font-size: 18px;
-    margin-left: 20px;
-    transition: background-color 0.3s ease;
-    letter-spacing: 1px;
-    color: #efefef;
-    width: 120px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    letter-spacing: 1px;
-}
-.div-button:hover {
-    cursor: pointer;
-    color: #efefef;
-    background-color: #1f81c7;
-}
+
 .center-box {
     margin-left: auto;
     margin-right: auto;
@@ -471,23 +437,7 @@ ul > li:hover > ol {
     justify-content: center;
 }
 
-.typical-a-button {
-    padding: 10px 20px;
-    background-color: #1c74b2;
-    border: 1px solid #18649a;
-    border-radius: 5px;
-    font-size: 18px;
-    margin-left: 20px;
-    transition: background-color 0.3s ease;
-    letter-spacing: 1px;
-    color: #efefef;
-    text-decoration: none;
-}
-.typical-a-button:hover {
-    cursor: pointer;
-    color: #efefef;
-    background-color: #1f81c7;
-}
+
 
 
 #contact-container{
@@ -528,7 +478,6 @@ ul > li:hover > ol {
     padding-bottom: 4px;
 }
 
-
 #order-form {
     display: flex;
     justify-content: center;
@@ -537,8 +486,51 @@ ul > li:hover > ol {
 #order-container > p {
     text-align: center;
 }
-#order-buttons {
+#order-buttons-container {
     margin-top: 20px;
     margin-bottom: 20px;
+    text-align: center;
+}
+
+
+#order-summary-title{
+    font-size: 25px;
+    text-align: center;
+}
+#order-summary-left{
+    width: 40%;
+    float: left;
+    margin: 0;
+}
+#order-summary-middle{
+    width: 30%;
+    float: left;
+    margin: 0;
+}
+#order-summary-right{
+    width: 30%;
+    float: left;
+    margin: 0;
+}
+
+#order-summary-left > p{
+    font-weight: bold;
+    float: left;
+    width: 50%;
+    margin: 0;
+    padding-bottom: 4px;
+}
+#order-summary-left > span{
+    float: left;
+    width: 50%;
+    margin: 0;
+    padding-bottom: 4px;
+}
+.order-summary-sub-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.order-summary-img {
     text-align: center;
 }
