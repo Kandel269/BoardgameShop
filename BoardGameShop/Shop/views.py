@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views import View
 from django.views.generic import DeleteView
 from django.urls import reverse_lazy
+from django.shortcuts import redirect
 
 from formtools.wizard.views import SessionWizardView
 
@@ -102,6 +103,7 @@ class OrderWizardView(SessionWizardView):
     def get_context_data(self, form, **kwargs):
         context = super().get_context_data(form=form, **kwargs)
         step = self.steps.current
+        user = self.request.user
 
         if step == '3':
             step_0_data = self.get_cleaned_data_for_step('0')
@@ -126,13 +128,62 @@ class OrderWizardView(SessionWizardView):
                 'street': step_1_data.get('street')
             }
 
+            price_games = 0
+            if user.is_authenticated:
+                games_dict = get_quantity(user)
+                for game, describe in games_dict.items():
+                    price_games += describe[1]
+                context['price_games'] = price_games
+
+            total_price = price_games + delivery.price
+            context['total_price'] = total_price
+
         return context
 
     def done(self, form_list, **kwargs):
-        return render(self.request,'home.html')
+        user = self.request.user
+        step_0_data = self.get_cleaned_data_for_step('0')
+        step_1_data = self.get_cleaned_data_for_step('1')
+        step_2_data = self.get_cleaned_data_for_step('2')
+
+        delivery_address = DeliveryAddress.objects.create(
+            first_name=step_1_data.get('first_name'),
+            last_name=step_1_data.get('last_name'),
+            e_mail=step_1_data.get('e_mail_address'),
+            postal_code=step_1_data.get('postal_code'),
+            house_number=step_1_data.get('house_number'),
+            local_number=step_1_data.get('local_number'),
+            street=step_1_data.get('street'),
+        )
+
+        payment_name = step_0_data.get('payment')
+        payment = get_object_or_404(Payment, name=payment_name)
+        delivery_name = step_2_data.get('delivery')
+        delivery = get_object_or_404(Delivery, name=delivery_name)
+
+        order = Order(user=user, delivery_address=delivery_address, payment=payment, delivery=delivery)
+
+        price_games = 0
+        if user.is_authenticated:
+            games_dict = get_quantity(user)
+            for game, describe in games_dict.items():
+                price_games += describe[1]
+                order_item = OrderItem(game=game,order = order, quantity=describe[0])
+                order_item.save()
+
+        total_price = price_games + delivery.price
+        order.total_price = total_price
+
+        return redirect('order_completed')
 
 class ContacView(View):
     template_name = "contact.html"
 
     def get(self,request):
         return render(request, self.template_name)
+
+class OrderCompleted(View):
+    template_name = 'order_completed.html'
+
+    def get(self,request):
+        return render(request,self.template_name)

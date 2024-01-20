@@ -534,3 +534,20 @@ ul > li:hover > ol {
 .order-summary-img {
     text-align: center;
 }
+
+#order-summary-price{
+    width: 40%
+}
+#order-summary-price > p {
+    font-weight: bold;
+    float: left;
+    width: 50%;
+    margin: 0;
+    padding-bottom: 4px;
+}
+#order-summary-price > span {
+    float: left;
+    width: 50%;
+    margin: 0;
+    padding-bottom: 4px;
+}

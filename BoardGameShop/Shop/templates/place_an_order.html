@@ -12,6 +12,7 @@
             <p>Step {{ wizard.steps.step1 }} of {{ wizard.steps.count }}</p>
             <form action="" method="post">{% csrf_token %}
             {% if wizard.steps.step1 == 4 %}
+                {{ wizard.management_form }}
                 <div id="order-summary-title">
                     <h1>Summary</h1>
                 </div>
@@ -47,17 +48,11 @@
                 <div style="clear:both"></div>
                 <hr>
                 <div id="order-summary-price">
-                    <div>
-                        <div class="price-describe-item">Games</div>
-                        <div class="price-describe-item">Delivery</div>
-                        <div class="price-describe-item">Total</div>
-                    </div>
-                    <div style="clear:both"></div>
-                    <div>
-
-                        {{ delivery.price }}
-                    </div>
+                    <p>Games:</p><span>{{ price_games }}$</span>
+                    <p>Delivery:</p><span>{{ delivery.price }}$</span>
+                    <p>Total:</p><span style="color: #ff1a1a;">{{ total_price }}$</span>
                 </div>
+                <div style="clear:both"></div>
             {% else %}
             <div id="order-form">
                 <table>

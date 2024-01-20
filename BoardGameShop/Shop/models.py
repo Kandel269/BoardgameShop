@@ -38,10 +38,17 @@ class Category(models.Model):
         verbose_name_plural = "Categories"
 
 class DeliveryAddress(models.Model):
+    first_name = models.CharField(max_length=255, default=None)
+    last_name = models.CharField(max_length=255, default=None)
+    e_mail = models.EmailField(default=None)
     postal_code = models.CharField(max_length=255)
     house_number = models.CharField(max_length=255)
     local_number = models.CharField(max_length=255, blank=True, null=True)
     street = models.CharField(max_length=255)
+
+    class Meta:
+        verbose_name = "DeliveryAddress"
+        verbose_name_plural = "DeliveryAddress"
 
 class Payment(models.Model):
     name = models.CharField(max_length=255)
