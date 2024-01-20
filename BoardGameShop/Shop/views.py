@@ -146,7 +146,7 @@ class OrderWizardView(SessionWizardView):
         step_1_data = self.get_cleaned_data_for_step('1')
         step_2_data = self.get_cleaned_data_for_step('2')
 
-        delivery_address = DeliveryAddress.objects.create(
+        delivery_address = DeliveryAddress(
             first_name=step_1_data.get('first_name'),
             last_name=step_1_data.get('last_name'),
             e_mail=step_1_data.get('e_mail_address'),
@@ -155,6 +155,7 @@ class OrderWizardView(SessionWizardView):
             local_number=step_1_data.get('local_number'),
             street=step_1_data.get('street'),
         )
+        delivery_address.save()
 
         payment_name = step_0_data.get('payment')
         payment = get_object_or_404(Payment, name=payment_name)
@@ -166,13 +167,22 @@ class OrderWizardView(SessionWizardView):
         price_games = 0
         if user.is_authenticated:
             games_dict = get_quantity(user)
+            list_order_item = []
             for game, describe in games_dict.items():
                 price_games += describe[1]
                 order_item = OrderItem(game=game,order = order, quantity=describe[0])
-                order_item.save()
+                list_order_item.append(order_item)
+                game.stock -= describe[0]
+                game.save()
+            cart = get_object_or_404(Cart, user=user)
+            cart_items = CartItem.objects.filter(cart=cart)
+            cart_items.delete()
 
         total_price = price_games + delivery.price
         order.total_price = total_price
+        order.save()
+        for item in list_order_item:
+            item.save()
 
         return redirect('order_completed')
 

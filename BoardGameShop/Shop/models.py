@@ -50,6 +50,9 @@ class DeliveryAddress(models.Model):
         verbose_name = "DeliveryAddress"
         verbose_name_plural = "DeliveryAddress"
 
+    def __str__(self):
+        return f"Name: {self.first_name} {self.last_name}  postal-code:{self.postal_code} house number:{self.house_number} local number:{self.local_number} street:{self.street}"
+
 class Payment(models.Model):
     name = models.CharField(max_length=255)
     image = models.ImageField(upload_to='website_images/')
@@ -91,7 +94,7 @@ class Delivery(models.Model):
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    games = models.ManyToManyField(Game, through='OrderItem')
+    games = models.ManyToManyField(Game, through='OrderItem', blank=True, null=True)
     ordered_date = models.DateTimeField(auto_now_add=True)
     total_price = models.DecimalField(max_digits=10, decimal_places=2)
     delivery_address = models.ForeignKey(DeliveryAddress, on_delete=models.PROTECT, default=None)
@@ -130,4 +133,7 @@ class PersonalData(models.Model):
     local_number = models.CharField(max_length=255, blank=True, null=True)
     street = models.CharField(max_length=255, blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"username: {self.user.name} postal-code:{self.postal_code} house number:{self.house_number} local number:{self.local_number} street:{self.street}"
 
