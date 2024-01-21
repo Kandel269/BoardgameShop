@@ -41,14 +41,15 @@ class DeliveryAddress(models.Model):
     first_name = models.CharField(max_length=255, default=None)
     last_name = models.CharField(max_length=255, default=None)
     e_mail = models.EmailField(default=None)
+    city = models.CharField(max_length=255)
     postal_code = models.CharField(max_length=255)
     house_number = models.CharField(max_length=255)
     local_number = models.CharField(max_length=255, blank=True, null=True)
     street = models.CharField(max_length=255)
 
     class Meta:
-        verbose_name = "DeliveryAddress"
-        verbose_name_plural = "DeliveryAddress"
+        verbose_name = "Delivery Address"
+        verbose_name_plural = "Delivery Address"
 
     def __str__(self):
         return f"Name: {self.first_name} {self.last_name}  postal-code:{self.postal_code} house number:{self.house_number} local number:{self.local_number} street:{self.street}"
@@ -128,6 +129,7 @@ class CartItem(models.Model):
         return f'{self.quantity} x {self.game.title}'
 
 class PersonalData(models.Model):
+    city = models.CharField(max_length=255, blank=True, null=True)
     postal_code = models.CharField(max_length=255, blank=True, null=True)
     house_number = models.CharField(max_length=255, blank=True, null=True)
     local_number = models.CharField(max_length=255, blank=True, null=True)
@@ -135,5 +137,8 @@ class PersonalData(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"username: {self.user.name} postal-code:{self.postal_code} house number:{self.house_number} local number:{self.local_number} street:{self.street}"
+        return f"username: {self.user.first_name} {self.user.last_name} postal-code:{self.postal_code} house number:{self.house_number} local number:{self.local_number} street:{self.street}"
 
+    class Meta:
+        verbose_name = "Personal Data"
+        verbose_name_plural = "Personal Data"

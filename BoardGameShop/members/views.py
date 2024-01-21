@@ -69,6 +69,7 @@ class PersonalDataView(View):
         user_data = {'first_name': user.first_name,
                      'last_name': user.last_name,
                      'e_mail_address': user.email,
+                     'city': personal_data.city,
                      'postal_code': personal_data.postal_code,
                      'house_number': personal_data.house_number,
                      'local_number': personal_data.local_number,
@@ -82,11 +83,13 @@ class PersonalDataView(View):
         if form.is_valid():
             user = request.user
 
+            city_value = form.cleaned_data['city']
             postal_code_value = form.cleaned_data['postal_code']
             house_number_value = form.cleaned_data['house_number']
             local_number_value = form.cleaned_data['local_number']
             street_value = form.cleaned_data['street']
             personal_data = get_object_or_404(PersonalData, user=user)
+            personal_data.city = city_value
             personal_data.postal_code = postal_code_value
             personal_data.house_number = house_number_value
             personal_data.local_number = local_number_value
